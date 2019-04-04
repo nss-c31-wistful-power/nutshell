@@ -16,10 +16,8 @@ export default {
 
         const eventNameInput = document.createElement("input")
 
-        
-        
-
-
+        const eventDate = document.createElement("")
     }
 }
+
 
