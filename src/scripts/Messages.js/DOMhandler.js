@@ -1,3 +1,5 @@
+import messageAPI from "./APIhandler"
+
 const messageBuilder = {
         createForm() {
                 // Message header
@@ -17,12 +19,18 @@ const messageBuilder = {
                 message_sendButton.textContent = "SEND"
 
                 const message_Output = document.createElement("textarea")
-                message_Output.classList = "message_Output"
+                message_Output.id = "message_Output"
 
                 message_formWrapper.appendChild(message_Input)
                 message_formWrapper.appendChild(message_sendButton)
                 message_formWrapper.appendChild(message_Output)
                 messageContainer.appendChild(message_formWrapper)
+        },
+        displayMessages() {
+                messageAPI.getMessages()
+                        .then(data => data.forEach(message => {
+                                console.log(message)
+                        }))
         }
 }
 
