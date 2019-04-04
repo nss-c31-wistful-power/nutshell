@@ -1,0 +1,17 @@
+/* MESSAGE STYLING */
+.message_formWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+}
+
+.message_Input {
+        width: 95vw;
+        height: 25px;
+}
+
+#message_Output {
+        width: 95vw;
+        height: 50px;
+}
+/* END OF MESSAGE STYLING*/
