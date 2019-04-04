@@ -7,7 +7,15 @@
 // save button - updates information with PUT/PATCH (is there a way to use a PUT rather than a PATCH? Will it affect the data?)
 
 export default {
+    buildEventForm() {
+        const eventNameLabel = document.createElement("label")
+        eventNameLabel.textContent = "New Event Name"
 
+        const eventNameInput = document.createElement("input")
 
-
+        const newEventButton = document.createElement("button")
+        newEventButton.textContent = "Add New Event"
+        
+    }
 }
+
