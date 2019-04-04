@@ -11,6 +11,11 @@
 // import statements for NEWS
 
 
+// MAKING FORM BUTTON FOR NEW NEWS
+import news from "./news/news-dom-manager";
+
+// GENERATING FORM FOR NEWS
+news.newsPost();
 
 
 // import statements for MESSAGES
