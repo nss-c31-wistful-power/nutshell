@@ -1,8 +1,63 @@
-
+// import statements for TASKS
 import taskAPI from "./tasks-module/taskAPI"
 import buildForm from "./tasks-module/task"
 import taskForm from "./tasks-module/taskForm"
 
-taskAPI.getAllTasks()
 
-taskForm.buildTaskForm();
+
+// import statements for EVENTS
+
+
+
+
+// import statements for NEWS
+
+
+// MAKING FORM BUTTON FOR NEW NEWS
+import news from "./news/news-dom-manager";
+
+// GENERATING FORM FOR NEWS
+news.newsPost();
+
+
+// import statements for MESSAGES
+import messageBuilder from "../scripts/Messages.js/DOMhandler"
+
+
+
+
+
+// function call statements for TASKS
+taskAPI.getAllTasks()
+taskForm.buildTaskForm()
+
+
+
+
+// function call statements for EVENTS
+
+
+
+
+
+// function call statements for NEWS
+
+
+
+
+
+// function call statements for MESSAGES
+messageBuilder.createForm()
+messageBuilder.displayMessages()
+
+
+
+
+
+
+
+
+
+
+
+
