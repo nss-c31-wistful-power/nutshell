@@ -6,6 +6,8 @@
 // edit function - button pressed, brings up form with prepopulated information in fields
 // save button - updates information with PUT/PATCH (is there a way to use a PUT rather than a PATCH? Will it affect the data?)
 
+import postEventsToList from "./eventsCalls"
+
 export default {
     buildEventForm() {
         // affordance for new event - button which will need to create all the following fields
@@ -22,6 +24,9 @@ export default {
         const eventDate = document.createElement("")
 
         const eventLocationInput = document.createElement("input")
+
+        const saveEventButton = document.createElement("button")
+        saveEventButton.addEventListener("click", postEventsToList())
     },
     
 }
