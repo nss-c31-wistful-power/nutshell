@@ -8,14 +8,18 @@
 
 export default {
     buildEventForm() {
+        const newEventButton = document.createElement("button")
+        newEventButton.textContent = "Add New Event"
+        
         const eventNameLabel = document.createElement("label")
         eventNameLabel.textContent = "New Event Name"
 
         const eventNameInput = document.createElement("input")
 
-        const newEventButton = document.createElement("button")
-        newEventButton.textContent = "Add New Event"
         
+        
+
+
     }
 }
 
