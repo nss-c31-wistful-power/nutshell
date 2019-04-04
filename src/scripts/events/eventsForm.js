@@ -12,6 +12,7 @@ export default {
         const newEventButton = document.createElement("button")
         newEventButton.textContent = "Add New Event"
         
+        
         // fields for created forms 
         const eventNameLabel = document.createElement("label")
         eventNameLabel.textContent = "New Event Name"
