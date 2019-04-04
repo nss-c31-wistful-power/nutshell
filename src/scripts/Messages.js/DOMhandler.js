@@ -6,7 +6,7 @@ const messageBuilder = {
                 // Message header
                 const messageContainer = document.querySelector("#messages-section")
                 const messageHeader = document.createElement("h1")
-                messageHeader.textContent = "Messages"
+                messageHeader.textContent = "MESSAGES"
                 messageContainer.appendChild(messageHeader)
 
                 // Message Form builder
