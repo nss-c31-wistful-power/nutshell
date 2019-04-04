@@ -1,38 +1,50 @@
 {
   "users": [
-    "userid":"",
+    {
+    "userid": 1,
     "username":"",
     "email":""
+    }
   ],
   "messages": [
-    "messageid":"",
+    {
+    "messageid": 1,
     "messages":"",
-    "userid":
-  ],
-  "articles": [
-    "articlesid":"",
-    "title":"",
-    "synopsis":"",
-    "URL":"",
-    "timeStamp":"",
     "userid":""
+    }
+  ]
+  ,
+     "articles": [
+     {
+      "articlesid": 1,
+      "title":"",
+      "synopsis":"",
+      "URL":"",
+      "timeStamp":"",
+      "userid":""
+    }
   ],
   "friends": [
-    "friendid":"",
-    "userid":"",
-    "friendUserid:""
+    {
+    "friendid": 1,
+    "userid": 1,
+    "friendUserid": 1
+    }
   ],
   "tasks": [
-    "taskid":"",
+  {
+    "taskid": 1,
     "taskName":"",
     "date":"",
-    "completed":"true"
-
+    "completed": false
+  }
   ],
   "events": [
-    "eventid":"",
+    {
+    "eventid": 1,
     "name":"",
     "date":"",
     "location":""
+    }
   ]
 }
