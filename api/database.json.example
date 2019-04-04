@@ -1,8 +1,38 @@
 {
-  "users": [],
-  "messages": [],
-  "articles": [],
-  "friends": [],
-  "tasks": [],
-  "events": []
+  "users": [
+    "userid":"",
+    "username":"",
+    "email":""
+  ],
+  "messages": [
+    "messageid":"",
+    "messages":"",
+    "userid":
+  ],
+  "articles": [
+    "articlesid":"",
+    "title":"",
+    "synopsis":"",
+    "URL":"",
+    "timeStamp":"",
+    "userid":""
+  ],
+  "friends": [
+    "friendid":"",
+    "userid":"",
+    "friendUserid:""
+  ],
+  "tasks": [
+    "taskid":"",
+    "taskName":"",
+    "date":"",
+    "completed":"true"
+
+  ],
+  "events": [
+    "eventid":"",
+    "name":"",
+    "date":"",
+    "location":""
+  ]
 }
