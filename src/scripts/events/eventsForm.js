@@ -8,16 +8,21 @@
 
 export default {
     buildEventForm() {
+        // affordance for new event - button which will need to create all the following fields
         const newEventButton = document.createElement("button")
         newEventButton.textContent = "Add New Event"
         
+        // fields for created forms 
         const eventNameLabel = document.createElement("label")
         eventNameLabel.textContent = "New Event Name"
 
         const eventNameInput = document.createElement("input")
 
         const eventDate = document.createElement("")
-    }
+
+        const eventLocationInput = document.createElement("input")
+    },
+    
 }
 
 
