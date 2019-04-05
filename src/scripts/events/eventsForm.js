@@ -41,11 +41,30 @@ const eventBuilder = {
         const saveEventButton = document.createElement("button")
         saveEventButton.addEventListener("click", eventsPost())
     },
-
-
-    
+}
+{
+const postEvents = {
+    newEvent()  {
+            name = (eventNameInput.value),
+            // date = (eventDate)
+            location = (eventLocationInput.value)
+        }
+},
 }
 
+const displayEvents = {
+    displayEvents() {
+        const eventsDisplayContainter = document.createElement("div")
+        eventsDisplayContainer.textContent = "Events List"
+        eventsSection.appendChild(eventsDisplayContainer)
+
+        eventsGet()
+    }
+}
+
+
+
 export default eventBuilder
+export default displayEvents
 
 
