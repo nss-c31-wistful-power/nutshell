@@ -8,13 +8,13 @@ getAllTasks() {
 }
 ,
 
-postTasks(task) {
+postTasks(newTask) {
     return fetch ("http://localhost:8088/tasks", {
      method: "POST",
      headers: {
         "content-type": "application/json"
      },
-     body: JSON.stringify(task)
+     body: JSON.stringify(newTask)
     }).then(response => response.json());
 
 }
