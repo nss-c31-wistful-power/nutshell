@@ -1,11 +1,12 @@
 import messageAPI from "./APIhandler"
+import handleMessages from "./messageEventHandler"
 
 const messageBuilder = {
         createForm() {
                 // Message header
                 const messageContainer = document.querySelector("#messages-section")
                 const messageHeader = document.createElement("h1")
-                messageHeader.textContent = "Messages"
+                messageHeader.textContent = "MESSAGES"
                 messageContainer.appendChild(messageHeader)
 
                 // Message Form builder
@@ -13,10 +14,11 @@ const messageBuilder = {
                 message_formWrapper.classList = "message_formWrapper"
 
                 const message_Input = document.createElement("input")
-                message_Input.classList = "message_Input"
+                message_Input.id = "message_Input"
 
                 const message_sendButton = document.createElement("button")
                 message_sendButton.textContent = "SEND"
+                message_sendButton.addEventListener("click", handleMessages.sendMessage)
 
                 const message_Output = document.createElement("textarea")
                 message_Output.id = "message_Output"
