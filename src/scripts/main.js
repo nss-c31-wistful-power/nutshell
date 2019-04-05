@@ -5,6 +5,8 @@ import taskForm from "./tasks-module/taskForm"
 import taskListeners from "./tasks-module/task-list"
 
 
+
+
 // import statements for EVENTS
 
 
@@ -32,6 +34,7 @@ taskAPI.getAllTasks()
 taskForm.buildTaskForm()
 buildForm()
 task-list.taskListeners()
+
 
 
 
