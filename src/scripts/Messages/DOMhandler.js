@@ -34,21 +34,25 @@ const messageBuilder = {
                                 const messageContainer = document.querySelector("#messages-section")
                                 const message_Output = document.querySelector("#message_Output")
                                 const messageCard = document.createElement("div")
+                                messageCard.id = `messageCard--${entry.id}`
                                 const userMessage = document.createElement("p")
                                 userMessage.textContent = entry.messages
 
                                 const eraser = document.createElement("button")
+                                eraser.textContent = "ERASE"
                                 eraser.id = "eraser"
+                                eraser.addEventListener("click", handleMessages.deleteMessage)
 
                                 const editor = document.createElement("button")
+                                editor.textContent = "EDIT"
                                 editor.id = "editor"
 
-                                messageContainer.appendChild(messageCard)
+                                console.log(messageCard.id)
+                                messageContainer.appendChild(message_Output)
+                                message_Output.appendChild(messageCard)
                                 messageCard.appendChild(userMessage)
-                                message_Output.appendChild(userMessage)
-                                message_Output.appendChild(editor)
-                                message_Output.appendChild(eraser)
-
+                                messageCard.appendChild(editor)
+                                messageCard.appendChild(eraser)
                         }))
         }
 }

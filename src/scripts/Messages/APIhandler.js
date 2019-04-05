@@ -12,6 +12,12 @@ const massageAPI = {
                         }
                 })
                 .then(response => response.json())
+        },
+        deleteMessage(messageId) {
+                return fetch(`http://localhost:8088/messages/${messageId}`, {
+                        method: "DELETE"
+                })
+                .then(response => response.json())
         }
 }
 
