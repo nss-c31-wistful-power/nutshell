@@ -19,7 +19,7 @@ import news from "./news/news-dom-manager";
 
 // GENERATING FORM FOR NEWS
 news.newsPost();
-
+news.getPostForPage();
 
 // import statements for MESSAGES
 import messageBuilder from "../scripts/Messages.js/DOMhandler"

@@ -1,4 +1,5 @@
 import newsForm from "./news-event-listeners";
+import allFetchCalls from "./news-api-handler";
 
 const header = document.createElement("h1")
 const newsContainer = document.querySelector("#articles-section");
@@ -15,8 +16,27 @@ const news = {
       newsForm.buildNewsForm()
       document.querySelector("#saveNewsButton").addEventListener("click", newsForm.handleAddFormSubmission);
     })
+  },
+  getPostForPage() {
+    allFetchCalls.getArticles()
+    .then(articlesName => articlesName.forEach(article => {
+    console.log(article)
+    const newsContainer = document.querySelector("#articles-section")
+    const newsSection = document.createElement("section");
+    newsContainer.appendChild(newsSection);
+
+  //  CREATING NEWS ELEMENT POST TO PUT TO DOM
+    
+    // const newsElement () => {
+    //   document.createElement("h1"),
+    //   document.createElement("h2"),
+    //   document.createElement("p")
+    // }
+
+    }))
   }
-}
+};
+
 export default news;
 
 

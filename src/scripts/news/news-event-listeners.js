@@ -1,3 +1,5 @@
+import allFetchCalls from "./news-api-handler";
+
 console.log("Hello")
 const newsForm = {
   buildNewsForm() {
@@ -46,7 +48,7 @@ const newsForm = {
     const newsTitleSubmission = document.querySelector("#news-title-input").value;
     const synopsisSubmission = document.querySelector("#synopsis-title-input").value;
     const urlSubmission = document.querySelector("#url-title-input").value;
-    const timeStampSubmission = document.querySelector("#time-stamp-info").value;
+    const timeStampSubmission = document.querySelector("#time-stamp-info");
     // const userId = document.querySelector(#user-id)
 
 
@@ -54,11 +56,13 @@ const newsForm = {
       title: newsTitleSubmission,
       synopsis: synopsisSubmission,
       url: urlSubmission,
-      timeStamp: timeStampSubmission,
+      timeStamp: new Date(),
       userId: ""
     };
 
   console.log("testing", newNewsPost)
+
+  allFetchCalls.postNewArticle(newNewsPost);
   }
 };
 export default newsForm;
