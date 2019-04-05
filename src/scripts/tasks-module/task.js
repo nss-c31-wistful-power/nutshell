@@ -1,7 +1,7 @@
 //
 
 
- {
+ const buildTaskForm = {
 
     buildForm(form) {
         //<article>
