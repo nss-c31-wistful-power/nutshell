@@ -1,35 +1,36 @@
-import task from "./task";
+import taskAPI from "./taskAPI";
 import taskListeners from "./task-list"
 //task-section     is the container
 
 
 const taskForm = {
-    buildTaskForm() {
-        
+buildTaskForm() {
+
         console.log("hello world")
-const taskContainer = document.querySelector("#tasks-section")
+const displayContainer = document.querySelector("#tasks-section")
 
 
 const addTaskButton = document.createElement("button");
 addTaskButton.textContent = "Add Task";
-taskContainer.appendChild(addTaskButton)
+displayContainer.appendChild(addTaskButton)
 addTaskButton.addEventListener("click", taskListeners.createTaskForm)
 
-// const taskLabel = document.createElement("label");
-// taskLabel.textContent = "Tasks Name: ";
+    },
 
-// const taskInput = document.createElement("input");
-// taskInput.id = "task-name-input";
-   
-// const taskDateLabel = document.createElement("label");
-// taskDateLabel.textContent = "Date: ";
+    listAllTasks(){
+        taskAPI.getAllTasks().then(taskresponse => {
+            console.log(taskresponse)
+        })
 
-// const dateInput = document.createElement("input");
-// dateInput.type = "date";
-// dateInput.id = "task-date-input"
+    },
 
+setupTasksContainer() {
+    const taskSection = document.createElement("section");
+    taskSection.id = "tasks-container";
+    const taskContainer = document.querySelector("#tasks-container")
+    taskContainer.appendChild(taskSection);
+}
 
-    }
 };
 
 export default taskForm;

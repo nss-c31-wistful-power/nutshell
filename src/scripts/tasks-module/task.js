@@ -1,6 +1,7 @@
 //
 
-export default {
+
+ {
 
     buildForm(form) {
         //<article>
@@ -23,4 +24,6 @@ export default {
         return taskArticle;
 
     }
-}
+ }
+
+export default buildForm

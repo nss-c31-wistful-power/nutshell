@@ -3,12 +3,12 @@
 const taskAPI = {
 getAllTasks() {
     return fetch("http://localhost:8088/tasks").then(taskResponse =>
-    console.log(taskResponse)
-    )
+    taskResponse.json()
+    );
 }
 ,
 
-postTasks(task) { 
+postTasks(task) {
     return fetch ("http://localhost:8088/tasks", {
      method: "POST",
      headers: {
