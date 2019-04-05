@@ -11,10 +11,12 @@ const news = {
     newNewsButton.textContent = "New Post";
     newsContainer.appendChild(newNewsButton);
 
-    newNewsButton.addEventListener("click", newsForm.buildNewsForm);
-
+    newNewsButton.addEventListener("click", () => {
+      newsForm.buildNewsForm()
+      document.querySelector("#saveNewsButton").addEventListener("click", newsForm.handleAddFormSubmission);
+    })
   }
-};
+}
 export default news;
 
 

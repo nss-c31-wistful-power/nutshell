@@ -20,9 +20,12 @@ const newsForm = {
 
     const saveNewsButton = document.createElement("button");
     saveNewsButton.textContent = "Save";
+    saveNewsButton.id = "saveNewsButton";
+    // saveNewsButton.addEventListener("click",)
 
     const timeStampInfo = document.createElement("p");
     timeStampInfo.textContent = new Date();
+    timeStampInfo.id = "time-stamp-info"
 
     const newsFormSections = document.createElement("section");
     newsContainer.appendChild(newsFormSections);
@@ -36,6 +39,26 @@ const newsForm = {
     newsFormSections.appendChild(timeStampInfo);
 
     return newsContainer;
-}
+},
+  handleAddFormSubmission() {
+    console.log("testing");
+    // const idSubmission = document.querySelector("#id-sumbission")
+    const newsTitleSubmission = document.querySelector("#news-title-input").value;
+    const synopsisSubmission = document.querySelector("#synopsis-title-input").value;
+    const urlSubmission = document.querySelector("#url-title-input").value;
+    const timeStampSubmission = document.querySelector("#time-stamp-info").value;
+    // const userId = document.querySelector(#user-id)
+
+
+    const newNewsPost = {
+      title: newsTitleSubmission,
+      synopsis: synopsisSubmission,
+      url: urlSubmission,
+      timeStamp: timeStampSubmission,
+      userId: ""
+    };
+
+  console.log("testing", newNewsPost)
+  }
 };
 export default newsForm;
