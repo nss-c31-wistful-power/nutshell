@@ -31,12 +31,12 @@ const eventsForm = {
     newEvent() {
         console.log("You're doing great.")
         const name = document.querySelector("#eventNameInput")
-            // date = (eventDate)
+        const date = document.querySelector("#eventDateInput")
         const location = document.querySelector("#eventLocationInput")
 
         const inputValues = {
             name: name.value,
-            date: "",
+            date: date.value,
             location: location.value
         }
         console.log(inputValues)
@@ -58,8 +58,10 @@ const eventsForm = {
         formContainer.appendChild(eventNameInput)
 
         // calendar feature?
-        // const eventDate = document.createElement("")
-        // formContainer.appendChild(eventDate)
+        const eventDateInput = document.createElement("input")
+        eventDateInput.setAttribute("type", "date")
+        eventDateInput.setAttribute("id", "eventDateInput")
+        formContainer.appendChild(eventDateInput)
 
         const eventLocationLabel = document.createElement("label")
         eventLocationLabel.textContent = "Where: "
