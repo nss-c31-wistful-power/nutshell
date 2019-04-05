@@ -6,65 +6,83 @@
 // edit function - button pressed, brings up form with prepopulated information in fields
 // save button - updates information with PUT/PATCH (is there a way to use a PUT rather than a PATCH? Will it affect the data?)
 
-import eventsGet from "./eventsCalls"
-import eventsPost from "./eventsCalls"
+import eventsCalls from "./eventsCalls"
 
-const eventBuilder = {
-    buildEventForm() {
+const eventsForm = {
 
+    addNewEventButton() {
         const eventContainer = document.querySelector("#events-section")
 
         const eventHeader = document.createElement("h2")
-        eventHeader.textContent = "Events"
+        eventHeader.textContent = "EVENTS"
+        eventContainer.appendChild(eventHeader)
 
         // affordance for new event - button which will need to create all the following fields
         const newEventButton = document.createElement("button")
         newEventButton.textContent = "Add New Event"
-        
+        newEventButton.addEventListener("click", this.buildEventForm)
+        eventContainer.appendChild(newEventButton)
+
+        const eventsFormSection = document.createElement("section")
+        eventsFormSection.setAttribute("id", "eventsFormSection")
+        eventContainer.appendChild(eventsFormSection)
+    },
+
+    newEvent() {
+        console.log("You're doing great.")
+        const name = document.querySelector("#eventNameInput")
+            // date = (eventDate)
+        const location = document.querySelector("#eventLocationInput")
+
+        const inputValues = {
+            name: name.value,
+            date: "",
+            location: location.value
+        }
+        console.log(inputValues)
+
+        eventsCalls.postEventsToList(inputValues)
+    },
+
+    buildEventForm() {
+
+        const formContainer = document.querySelector("#eventsFormSection")
+
         // fields for created forms
         const eventNameLabel = document.createElement("label")
-        eventNameLabel.textContent = "New Event Name"
-        eventContainer.appendChild(eventNameLabel)
-        
+        eventNameLabel.textContent = "New Event Name: "
+        formContainer.appendChild(eventNameLabel)
+
         const eventNameInput = document.createElement("input")
-        eventContainer.appendChild(eventNameInput)
+        eventNameInput.setAttribute("id", "eventNameInput")
+        formContainer.appendChild(eventNameInput)
 
         // calendar feature?
         // const eventDate = document.createElement("")
-        // eventContainer.appendChild(eventDate)
+        // formContainer.appendChild(eventDate)
+
+        const eventLocationLabel = document.createElement("label")
+        eventLocationLabel.textContent = "Where: "
+        formContainer.appendChild(eventLocationLabel)
 
 
         const eventLocationInput = document.createElement("input")
-        eventContainer.appendChild(eventLocationInput)
-
+        eventLocationInput.setAttribute("id", "eventLocationInput")
+        formContainer.appendChild(eventLocationInput)
+        
         // save button - post request
         const saveEventButton = document.createElement("button")
-        saveEventButton.addEventListener("click", eventsPost())
+        saveEventButton.textContent = "Save"
+        saveEventButton.addEventListener("click", eventsForm.newEvent)
+        formContainer.appendChild(saveEventButton)
     },
-}
-{
-const postEvents = {
-    newEvent()  {
-            name = (eventNameInput.value),
-            // date = (eventDate)
-            location = (eventLocationInput.value)
-        }
-},
-}
 
-const displayEvents = {
+
     displayEvents() {
         const eventsDisplayContainter = document.createElement("div")
         eventsDisplayContainer.textContent = "Events List"
         eventsSection.appendChild(eventsDisplayContainer)
-
-        eventsGet()
     }
 }
 
-
-
-export default eventBuilder
-export default displayEvents
-
-
+export default eventsForm
