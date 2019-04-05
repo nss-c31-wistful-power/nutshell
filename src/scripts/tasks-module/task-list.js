@@ -1,12 +1,27 @@
-import form from "./task";
 import taskAPI from "./taskAPI";
 
-const taskListeners = {
+// const taskListeners = {
 
-    createTaskForm() {
-console.log("string")
+    const handleAddTask = () => {
+        const taskName = document.querySelector("#task-name-input").value;
+        const taskDate = document.querySelector("#task-date-input").value;
 
-const taskFormContainer = document.querySelector("#tasks-section")
+        console.log("task Values", taskName, taskDate)
+
+        const newTask = {
+            name: taskName,
+            date: taskDate,
+            completed: false
+        };
+
+        taskAPI.postTasks(newTask)
+
+    }
+
+    const createTaskForm = () => {
+        console.log("string")
+
+        const taskFormContainer = document.querySelector("#tasks-section")
         const taskLabel = document.createElement("label");
         taskLabel.textContent = "Tasks Name: ";
 
@@ -22,7 +37,9 @@ const taskFormContainer = document.querySelector("#tasks-section")
 
         const taskFormButton = document.createElement("button");
         taskFormButton.textContent = "Save Task";
-        taskFormButton.addEventListener("click", this.handleAddTask)
+        taskFormButton.addEventListener("click", () => {
+           handleAddTask()
+        })
 
 
 
@@ -34,21 +51,9 @@ const taskFormContainer = document.querySelector("#tasks-section")
 
 
 
-        return taskFormContainer;
-    },
 
-    handleAddTask() {
-        const taskName = document.querySelector("#task-name-input").value;
-        const taskDate = document.querySelector("#task-date-input").value;
-
-        const newTask = {
-            name: taskName,
-            date: taskDate
-        };
-
-        taskAPI.postTasks(newTask)
-        .then(() => taskForm.listAlltasks())
     }
-}
 
-export default taskListeners
+// }
+
+export default createTaskForm
