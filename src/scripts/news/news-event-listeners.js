@@ -21,6 +21,9 @@ const newsForm = {
     const saveNewsButton = document.createElement("button");
     saveNewsButton.textContent = "Save";
 
+    const timeStampInfo = document.createElement("p");
+    timeStampInfo.textContent = new Date();
+
     const newsFormSections = document.createElement("section");
     newsContainer.appendChild(newsFormSections);
     newsFormSections.appendChild(newsTitleLabel);
@@ -30,6 +33,7 @@ const newsForm = {
     newsFormSections.appendChild(URLLabel);
     newsFormSections.appendChild(URLInput);
     newsFormSections.appendChild(saveNewsButton);
+    newsFormSections.appendChild(timeStampInfo);
 
     return newsContainer;
 }
