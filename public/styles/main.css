@@ -5,7 +5,7 @@
         justify-content: center;
 }
 
-.message_Input {
+#message_Input {
         width: 95vw;
         height: 25px;
 }
