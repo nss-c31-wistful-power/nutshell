@@ -7,7 +7,7 @@ import taskListeners from "./tasks-module/task-list"
 
 
 // import statements for EVENTS
-
+import eventBuilder from ".events/eventsForm"
 
 
 
@@ -23,6 +23,7 @@ news.newsPost();
 
 // import statements for MESSAGES
 import messageBuilder from "../scripts/Messages.js/DOMhandler"
+import eventsCalls from "./events/eventsCalls";
 
 
 
