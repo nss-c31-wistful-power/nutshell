@@ -17,24 +17,30 @@ const news = {
       document.querySelector("#saveNewsButton").addEventListener("click", newsForm.handleAddFormSubmission);
     })
   },
+  // CHANGE THE NAME FOR ONLY EXISTING ARTICLES
   getPostForPage() {
     allFetchCalls.getArticles()
-    .then(articlesName => articlesName.forEach(article => {
-    console.log(article)
-    const newsContainer = document.querySelector("#articles-section")
-    const newsSection = document.createElement("section");
-    newsContainer.appendChild(newsSection);
+    .then(articles => {
+      
+        const newsContainer = document.querySelector("#articles-section")
+        articles.forEach(article => {
+        console.log(article)
+        const newsSection = document.createElement("section");
+        
+        //  CREATING NEWS ELEMENT POST TO PUT TO DOM
+        
+         const title = document.createElement("h1");
+         const synopsis = document.createElement("h2");
+         const url = document.createElement("p");
 
-  //  CREATING NEWS ELEMENT POST TO PUT TO DOM
-    
-    // const newsElement () => {
-    //   document.createElement("h1"),
-    //   document.createElement("h2"),
-    //   document.createElement("p")
-    // }
+         title.textContent = article.title;
+         synopsis.textContent = article.synopsis;
+         url.textContent = article.url;
 
-    }))
-  }
+          newsContainer.appendChild(newsSection);
+
+    })
+  })}
 };
 
 export default news;

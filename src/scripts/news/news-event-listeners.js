@@ -25,9 +25,9 @@ const newsForm = {
     saveNewsButton.id = "saveNewsButton";
     // saveNewsButton.addEventListener("click",)
 
-    const timeStampInfo = document.createElement("p");
-    timeStampInfo.textContent = new Date();
-    timeStampInfo.id = "time-stamp-info"
+    // const timeStampInfo = document.createElement("p");
+    // timeStampInfo.textContent = new Date();
+    // timeStampInfo.id = "time-stamp-info"
 
     const newsFormSections = document.createElement("section");
     newsContainer.appendChild(newsFormSections);
@@ -38,7 +38,7 @@ const newsForm = {
     newsFormSections.appendChild(URLLabel);
     newsFormSections.appendChild(URLInput);
     newsFormSections.appendChild(saveNewsButton);
-    newsFormSections.appendChild(timeStampInfo);
+    // newsFormSections.appendChild(timeStampInfo);
 
     return newsContainer;
 },
@@ -48,7 +48,6 @@ const newsForm = {
     const newsTitleSubmission = document.querySelector("#news-title-input").value;
     const synopsisSubmission = document.querySelector("#synopsis-title-input").value;
     const urlSubmission = document.querySelector("#url-title-input").value;
-    const timeStampSubmission = document.querySelector("#time-stamp-info");
     // const userId = document.querySelector(#user-id)
 
 
