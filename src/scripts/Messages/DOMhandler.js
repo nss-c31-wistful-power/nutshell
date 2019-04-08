@@ -18,6 +18,7 @@ const messageBuilder = {
 
                 const message_sendButton = document.createElement("button")
                 message_sendButton.textContent = "SEND"
+                message_sendButton.id = "message_sendButton"
                 message_sendButton.addEventListener("click", handleMessages.sendMessage)
 
                 const message_Output = document.createElement("div")
@@ -38,21 +39,20 @@ const messageBuilder = {
                                 const userMessage = document.createElement("p")
                                 userMessage.textContent = entry.messages
 
-                                const eraser = document.createElement("button")
-                                eraser.textContent = "ERASE"
-                                eraser.id = "eraser"
-                                eraser.addEventListener("click", handleMessages.deleteMessage)
+                                const deleteButton = document.createElement("button")
+                                deleteButton.classList = "deleteButton"
+                                deleteButton.textContent = "DELETE"
+                                deleteButton.id = `deleteButton--${entry.id}`
+                                deleteButton.addEventListener("click", handleMessages.deleteMessage)
 
-                                const editor = document.createElement("button")
-                                editor.textContent = "EDIT"
-                                editor.id = "editor"
+                                const editButton = document.createElement("button")
+                                editButton.textContent = "EDIT"
 
-                                console.log(messageCard.id)
                                 messageContainer.appendChild(message_Output)
                                 message_Output.appendChild(messageCard)
                                 messageCard.appendChild(userMessage)
-                                messageCard.appendChild(editor)
-                                messageCard.appendChild(eraser)
+                                messageCard.appendChild(editButton)
+                                messageCard.appendChild(deleteButton)
                         }))
         }
 }

@@ -9,7 +9,7 @@ const clearElement = domElement => {
 
 const handleMessages = {
         sendMessage() {
-                const userId = ""
+                const userId = null
                 const message_Input = document.querySelector("#message_Input")
 
                 const message = {
@@ -21,13 +21,13 @@ const handleMessages = {
                 .then(messageBuilder.displayMessages)
         },
         deleteMessage() {
-                const message_Output = document.querySelector("#message_Output")
                 let messageId = event.target.parentNode.id.split("--")[1]
+                const message = document.querySelector(`#messageCard--${messageId}`)
+                console.log(message)
                 console.log(messageId)
-                messageAPI.deleteMessage(messageId)
-                // .then(clearElement(message_Output))
-                // .then(messageBuilder.displayMessages)
-        }
+                messageAPI.deleteMessage(parseInt(messageId))
+        },
+
 }
 
 export default handleMessages

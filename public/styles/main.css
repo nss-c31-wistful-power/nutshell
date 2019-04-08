@@ -16,4 +16,8 @@
 #messageCard {
         background-color: rgb(243, 243, 243);
 }
+
+#message_sendButton {
+        width: 5vw;
+}
 /* END OF MESSAGE STYLING*/
