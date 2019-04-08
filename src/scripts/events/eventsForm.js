@@ -116,6 +116,8 @@ const eventsForm = {
         const deleteButton = document.createElement("button")
         deleteButton.textContent = "Delete"
         eventsDisplayContainer.appendChild(deleteButton)
+
+        
     },
 }
 
