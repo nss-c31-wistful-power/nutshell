@@ -55,7 +55,7 @@ const eventsForm = {
             location: editLocation.value
         }
 
-        eventsCalls.editEvent(editValues)
+        eventsCalls.editEvent(editValues).then(eventsCalls.getEventsList())
     },
 
     deleteEvents() {
@@ -76,6 +76,9 @@ const eventsForm = {
         formContainer.appendChild(eventNameInput)
 
         // calendar feature?
+        const eventDateLabel = document.createElement("label")
+        eventDateLabel.textContent = "When: "
+        
         const eventDateInput = document.createElement("input")
         eventDateInput.setAttribute("type", "date")
         eventDateInput.setAttribute("id", "eventDateInput")

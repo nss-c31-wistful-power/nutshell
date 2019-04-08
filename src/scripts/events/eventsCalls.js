@@ -26,7 +26,11 @@ export default {
 
     editEvent(editedEvent) {
         return fetch("http://localhost:8088/events", {
-            method: "PATCH"
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(editedEvent)
         })
     }
 }
