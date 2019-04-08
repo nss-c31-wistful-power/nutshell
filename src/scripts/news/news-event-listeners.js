@@ -1,4 +1,11 @@
 import allFetchCalls from "./news-api-handler";
+import news from "./news-dom-manager";
+
+const clearElement = domElement => {
+    while (domElement.firstChild) {
+        domElement.removeChild(domElement.firstChild);
+    }
+}
 
 console.log("Hello")
 const newsForm = {
@@ -59,9 +66,14 @@ const newsForm = {
       userId: ""
     };
 
-  console.log("testing", newNewsPost)
+    console.log("testing", newNewsPost)
 
-  allFetchCalls.postNewArticle(newNewsPost);
+    const newsSectionDiv = document.querySelector("#newsSectionDiv")
+    
+
+    allFetchCalls.postNewArticle(newNewsPost)
+      .then(clearElement(newsSectionDiv))
+      .then(news.getPostForPage);
   }
 };
 export default newsForm;

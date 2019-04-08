@@ -23,6 +23,9 @@ const news = {
     .then(articles => {
       
         const newsContainer = document.querySelector("#articles-section")
+        const newsSectionDiv = document.createElement("div");
+          newsSectionDiv.id = "newsSectionDiv";
+          newsContainer.appendChild(newsSectionDiv);
         articles.forEach(article => {
         console.log(article)
         const newsSection = document.createElement("section");
@@ -31,23 +34,30 @@ const news = {
         
          const title = document.createElement("h1");
          const synopsis = document.createElement("h2");
-         const url = document.createElement("p");
+         const url = document.createElement("a");
+         const time = document.createElement("p");
 
          title.textContent = article.title;
          synopsis.textContent = article.synopsis;
          url.textContent = article.url;
-
-          newsContainer.appendChild(newsSection);
-
-    })
-  })}
-};
-
-export default news;
-
-
-// WORKING ON TIMESTAMP FUNCTIONALITY
-
+         url.setAttribute("href", article.url)
+         url.setAttribute("target", "_blank")
+         time.textContent = new Date();
+         
+         newsSection.appendChild(title);
+         newsSection.appendChild(synopsis);
+         newsSection.appendChild(url);
+         newsSection.appendChild(time);
+         newsSectionDiv.appendChild(newsSection);
+        })
+      })}
+    };
+    
+    export default news;
+    
+    
+    // WORKING ON TIMESTAMP FUNCTIONALITY
+    
 // const timeStamp = new Date();
 // timeStamp.getTime();
 
