@@ -55,11 +55,11 @@ const eventsForm = {
             location: editLocation.value
         }
 
-        eventsCalls.editEvent(editValues).then(eventsCalls.getEventsList())
+        eventsCalls.editEvent(editValues).then(() => eventsCalls.getEventsList())
     },
 
     deleteEvents() {
-
+        
     },
 
     buildEventForm() {
@@ -78,7 +78,8 @@ const eventsForm = {
         // calendar feature?
         const eventDateLabel = document.createElement("label")
         eventDateLabel.textContent = "When: "
-        
+        formContainer.appendChild(eventDateLabel)
+
         const eventDateInput = document.createElement("input")
         eventDateInput.setAttribute("type", "date")
         eventDateInput.setAttribute("id", "eventDateInput")
@@ -87,7 +88,6 @@ const eventsForm = {
         const eventLocationLabel = document.createElement("label")
         eventLocationLabel.textContent = "Where: "
         formContainer.appendChild(eventLocationLabel)
-
 
         const eventLocationInput = document.createElement("input")
         eventLocationInput.setAttribute("id", "eventLocationInput")
@@ -102,9 +102,12 @@ const eventsForm = {
 
 
     displayEvents() {
-        const eventsDisplayContainter = document.createElement("div")
+
+
+        const getHTMLContainer = document.querySelector("#events-section")
+        const eventsDisplayContainer = document.createElement("div")
         eventsDisplayContainer.textContent = "Events List"
-        eventsSection.appendChild(eventsDisplayContainer)
+        getHTMLContainer.appendChild(eventsDisplayContainer)
 
         const editButton = document.createElement("button")
         editButton.textContent = "Edit"
@@ -114,7 +117,6 @@ const eventsForm = {
         deleteButton.textContent = "Delete"
         eventsDisplayContainer.appendChild(deleteButton)
     },
-
 }
 
 export default eventsForm

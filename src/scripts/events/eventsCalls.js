@@ -11,7 +11,7 @@ export default {
                 "content-type": "application/json"
             },
             body: JSON.stringify(updatedEvent)
-        })
+        }).then(response => response.json())
     },
 
     deleteEventsFromList(deletedEvent) {
@@ -21,7 +21,7 @@ export default {
                 "content-type": "application/json"
             },
             body: JSON.stringify(deletedEvent)
-        })
+        }).then(response => response.json())
     },
 
     editEvent(editedEvent) {
@@ -31,6 +31,6 @@ export default {
                 "content-type": "application/json"
             },
             body: JSON.stringify(editedEvent)
-        })
+        }).then(response => response.json())
     }
 }

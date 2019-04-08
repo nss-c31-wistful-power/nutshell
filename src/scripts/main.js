@@ -41,7 +41,9 @@ taskForm.buildTaskForm()
 
 // function call statements for EVENTS
 eventsForm.addNewEventButton()
-
+eventsForm.displayEvents()
+eventsForm.editEvents()
+eventsForm.newEvent()
 
 
 
