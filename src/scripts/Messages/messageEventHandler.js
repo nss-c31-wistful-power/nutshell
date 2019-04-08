@@ -30,8 +30,11 @@ const handleMessages = {
         editMessage() {
                 const message_Output = document.querySelector("#message_Output")
                 let messageId = event.target.parentNode.id.split("--")[1]
+                console.log("edit button " + messageId)
+                messageAPI.getMessage(messageId).then(messageToEdit => {
+                        console.log(messageToEdit)
+                })
         }
-
 }
 
 export default handleMessages

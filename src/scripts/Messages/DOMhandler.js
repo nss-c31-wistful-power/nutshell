@@ -30,7 +30,7 @@ const messageBuilder = {
                 messageContainer.appendChild(message_formWrapper)
         },
         displayMessages() {
-                messageAPI.getMessages()
+                messageAPI.getAllMessages()
                         .then(data => data.forEach(entry => {
                                 const messageContainer = document.querySelector("#messages-section")
                                 const message_Output = document.querySelector("#message_Output")
@@ -40,13 +40,16 @@ const messageBuilder = {
                                 userMessage.textContent = entry.messages
 
                                 const deleteButton = document.createElement("button")
-                                deleteButton.classList = "deleteButton"
                                 deleteButton.textContent = "DELETE"
+                                deleteButton.classList = "deleteButton"
                                 deleteButton.id = `deleteButton--${entry.id}`
                                 deleteButton.addEventListener("click", handleMessages.deleteMessage)
 
                                 const editButton = document.createElement("button")
                                 editButton.textContent = "EDIT"
+                                editButton.classList = "editButton"
+                                editButton.id = `editButton--${entry.id}`
+                                editButton.addEventListener("click", handleMessages.editMessage)
 
                                 messageContainer.appendChild(message_Output)
                                 message_Output.appendChild(messageCard)
