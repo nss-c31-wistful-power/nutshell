@@ -69,7 +69,6 @@ const newsForm = {
     console.log("testing", newNewsPost)
 
     const newsSectionDiv = document.querySelector("#newsSectionDiv")
-    
 
     allFetchCalls.postNewArticle(newNewsPost)
       .then(clearElement(newsSectionDiv))

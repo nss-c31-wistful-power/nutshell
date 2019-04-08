@@ -21,7 +21,7 @@ const news = {
   getPostForPage() {
     allFetchCalls.getArticles()
     .then(articles => {
-      
+
         const newsContainer = document.querySelector("#articles-section")
         const newsSectionDiv = document.createElement("div");
           newsSectionDiv.id = "newsSectionDiv";
@@ -29,9 +29,9 @@ const news = {
         articles.forEach(article => {
         console.log(article)
         const newsSection = document.createElement("section");
-        
+
         //  CREATING NEWS ELEMENT POST TO PUT TO DOM
-        
+
          const title = document.createElement("h1");
          const synopsis = document.createElement("h2");
          const url = document.createElement("a");
@@ -43,7 +43,7 @@ const news = {
          url.setAttribute("href", article.url)
          url.setAttribute("target", "_blank")
          time.textContent = new Date();
-         
+
          newsSection.appendChild(title);
          newsSection.appendChild(synopsis);
          newsSection.appendChild(url);
@@ -52,12 +52,11 @@ const news = {
         })
       })}
     };
-    
+
     export default news;
-    
-    
+
     // WORKING ON TIMESTAMP FUNCTIONALITY
-    
+
 // const timeStamp = new Date();
 // timeStamp.getTime();
 
