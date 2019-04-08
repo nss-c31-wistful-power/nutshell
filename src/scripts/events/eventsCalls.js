@@ -12,5 +12,21 @@ export default {
             },
             body: JSON.stringify(updatedEvent)
         })
+    },
+
+    deleteEventsFromList(deletedEvent) {
+        return fetch("http://localhost:8088/events", {
+            method: "DELETE",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(deletedEvent)
+        })
+    },
+
+    editEvent(editedEvent) {
+        return fetch("http://localhost:8088/events", {
+            method: "PATCH"
+        })
     }
 }

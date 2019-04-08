@@ -44,6 +44,24 @@ const eventsForm = {
         eventsCalls.postEventsToList(inputValues)
     },
 
+    editEvents() {
+        const editName = document.querySelector("#eventNameInput")
+        const editDate = document.querySelector("#eventDateInput")
+        const editLocation = document.querySelector("#eventLocationInput")
+
+        const editValues = {
+            name: editName.value,
+            date: editDate.value,
+            location: editLocation.value
+        }
+
+        eventsCalls.editEvent(editValues)
+    },
+
+    deleteEvents() {
+
+    },
+
     buildEventForm() {
 
         const formContainer = document.querySelector("#eventsFormSection")
@@ -84,7 +102,16 @@ const eventsForm = {
         const eventsDisplayContainter = document.createElement("div")
         eventsDisplayContainer.textContent = "Events List"
         eventsSection.appendChild(eventsDisplayContainer)
-    }
+
+        const editButton = document.createElement("button")
+        editButton.textContent = "Edit"
+        eventsDisplayContainer.appendChild(editButton)
+
+        const deleteButton = document.createElement("button")
+        deleteButton.textContent = "Delete"
+        eventsDisplayContainer.appendChild(deleteButton)
+    },
+
 }
 
 export default eventsForm
