@@ -16,22 +16,22 @@ const news = {
       newsForm.buildNewsForm()
       document.querySelector("#saveNewsButton").addEventListener("click", newsForm.handleAddFormSubmission);
     })
+    // CREATE SECTION TO ARTICLES AND APPEND TO DOM
+    const newsArticlesOutput = document.createElement("section");
+    newsArticlesOutput.id = "newsArticlesOutput";
+    newsContainer.appendChild(newsArticlesOutput);
   },
   // CHANGE THE NAME FOR ONLY EXISTING ARTICLES
   getPostForPage() {
     allFetchCalls.getArticles()
     .then(articles => {
 
-        const newsContainer = document.querySelector("#articles-section")
-        const newsSectionDiv = document.createElement("div");
-          newsSectionDiv.id = "newsSectionDiv";
-          newsContainer.appendChild(newsSectionDiv);
-        articles.forEach(article => {
-        console.log(article)
-        const newsSection = document.createElement("section");
+        const newsContainer = document.querySelector("#newsArticlesOutput");
 
         //  CREATING NEWS ELEMENT POST TO PUT TO DOM
 
+        articles.forEach(article => {
+         const newsSection = document.createElement("section");
          const title = document.createElement("h1");
          const synopsis = document.createElement("h2");
          const url = document.createElement("a");
@@ -48,9 +48,10 @@ const news = {
          newsSection.appendChild(synopsis);
          newsSection.appendChild(url);
          newsSection.appendChild(time);
-         newsSectionDiv.appendChild(newsSection);
+         newsContainer.appendChild(newsSection);
         })
-      })}
+       })
+      }
     };
 
     export default news;

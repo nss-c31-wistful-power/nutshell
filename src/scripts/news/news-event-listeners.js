@@ -63,15 +63,15 @@ const newsForm = {
       synopsis: synopsisSubmission,
       url: urlSubmission,
       timeStamp: new Date(),
-      userId: ""
+      userId: null
     };
 
     console.log("testing", newNewsPost)
 
-    const newsSectionDiv = document.querySelector("#newsSectionDiv")
+    const newsArticlesOuput = document.querySelector("#newsArticlesOutput")
 
     allFetchCalls.postNewArticle(newNewsPost)
-      .then(clearElement(newsSectionDiv))
+      .then(clearElement(newsArticlesOutput))
       .then(news.getPostForPage);
   }
 };
