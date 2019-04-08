@@ -21,11 +21,12 @@ const handleMessages = {
                 .then(messageBuilder.displayMessages)
         },
         deleteMessage() {
+                const message_Output = document.querySelector("#message_Output")
                 let messageId = event.target.parentNode.id.split("--")[1]
                 const message = document.querySelector(`#messageCard--${messageId}`)
-                console.log(message)
-                console.log(messageId)
-                messageAPI.deleteMessage(parseInt(messageId))
+                messageAPI.deleteMessage(messageId)
+                .then(clearElement(message_Output))
+                .then(messageBuilder.displayMessages)
         },
 
 }

@@ -16,11 +16,7 @@ const massageAPI = {
         deleteMessage(messageId) {
                 return fetch(`http://localhost:8088/messages/${messageId}`, {
                         method: "DELETE",
-                        headers: {
-                                "Content-Type": "application/json"
-                        }
                 })
-                .then(response => response.json())
         }
 }
 
