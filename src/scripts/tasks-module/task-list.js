@@ -1,6 +1,11 @@
 import taskAPI from "./taskAPI";
+import taskForm from "./taskForm"
 
-// const taskListeners = {
+const clearElement = domElement => {
+    while (domElement.firstChild) {
+            domElement.removeChild(domElement.firstChild);
+    }
+}
 
     const handleAddTask = () => {
         const taskName = document.querySelector("#task-name-input").value;
@@ -14,14 +19,18 @@ import taskAPI from "./taskAPI";
             completed: false
         };
 
-        taskAPI.postTasks(newTask)
+        const output = document.querySelector("#output")
 
+        taskAPI.postTasks(newTask).then(clearElement(output))
+        .then(taskForm.listAllTasks)
     }
 
     const createTaskForm = () => {
         console.log("string")
+        const formSection = document.querySelector("#formSection")
+        clearElement(formSection);
 
-        const taskFormContainer = document.querySelector("#tasks-section")
+        const taskFormContainer = document.querySelector("#formSection")
         const taskLabel = document.createElement("label");
         taskLabel.textContent = "Tasks Name: ";
 
@@ -38,7 +47,7 @@ import taskAPI from "./taskAPI";
         const taskFormButton = document.createElement("button");
         taskFormButton.textContent = "Save Task";
         taskFormButton.addEventListener("click", () => {
-           handleAddTask()
+        handleAddTask()
         })
 
 
@@ -54,6 +63,5 @@ import taskAPI from "./taskAPI";
 
     }
 
-// }
 
 export default createTaskForm
