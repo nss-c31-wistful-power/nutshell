@@ -8,24 +8,25 @@
 
 import eventsCalls from "./eventsCalls"
 
+const eventsContainer = document.querySelector("#events-section")
+
 const eventsForm = {
 
     addNewEventButton() {
-        const eventContainer = document.querySelector("#events-section")
 
         const eventHeader = document.createElement("h2")
         eventHeader.textContent = "EVENTS"
-        eventContainer.appendChild(eventHeader)
+        eventsContainer.appendChild(eventHeader)
 
         // affordance for new event - button which will need to create all the following fields
         const newEventButton = document.createElement("button")
         newEventButton.textContent = "Add New Event"
         newEventButton.addEventListener("click", this.buildEventForm)
-        eventContainer.appendChild(newEventButton)
+        eventsContainer.appendChild(newEventButton)
 
         const eventsFormSection = document.createElement("section")
         eventsFormSection.setAttribute("id", "eventsFormSection")
-        eventContainer.appendChild(eventsFormSection)
+        eventsContainer.appendChild(eventsFormSection)
     },
 
     newEvent() {
@@ -41,7 +42,7 @@ const eventsForm = {
         }
         console.log(inputValues)
 
-        eventsCalls.postEventsToList(inputValues)
+        return eventsCalls.postEventsToList(inputValues)
     },
 
     editEvents() {
@@ -96,7 +97,12 @@ const eventsForm = {
         // save button - post request
         const saveEventButton = document.createElement("button")
         saveEventButton.textContent = "Save"
-        saveEventButton.addEventListener("click", eventsForm.newEvent)
+        saveEventButton.addEventListener("click", () => {
+            eventsForm.newEvent()
+            .then(() => {
+                eventsForm.createEventsDisplay()
+            })
+        })
         formContainer.appendChild(saveEventButton)
     },
 
@@ -104,21 +110,34 @@ const eventsForm = {
     displayEvents() {
 
 
-        const getHTMLContainer = document.querySelector("#events-section")
+        const eventsContainer = document.querySelector("#events-section")
         const eventsDisplayContainer = document.createElement("div")
         eventsDisplayContainer.textContent = "Events List"
-        getHTMLContainer.appendChild(eventsDisplayContainer)
-
+        
         const editButton = document.createElement("button")
         editButton.textContent = "Edit"
-        eventsDisplayContainer.appendChild(editButton)
+        // eventsDisplayContainer.appendChild(editButton)
 
         const deleteButton = document.createElement("button")
         deleteButton.textContent = "Delete"
-        eventsDisplayContainer.appendChild(deleteButton)
+        // eventsDisplayContainer.appendChild(deleteButton)
 
-        
-    },
-}
+        },
+
+    createEventsDisplay() {
+        console.log("createEventsDisplay called")
+        // eventsCalls.getEventsList().then((events) => {
+        // events.forEach(event => {
+        //     this.displayEvents(event)
+        // })
+        // eventsContainer.appendChild(eventsDisplayContainer)}
+    }
+
+        // clearEventsDisplay() {
+        //     while ()
+        // }
+    }
+        // .then(eventsDisplayContainer.appendChild(editButton), eventsDisplayContainer.appendChild(deleteButton))
+    
 
 export default eventsForm
