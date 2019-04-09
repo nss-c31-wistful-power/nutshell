@@ -17,23 +17,43 @@ const handleMessages = {
                         userId: userId
                 }
                 messageAPI.postMessage(message)
-                .then(clearElement(message_Output))
-                .then(messageBuilder.displayMessages)
+                        .then(clearElement(message_Output))
+                        .then(messageBuilder.displayMessages)
         },
         deleteMessage() {
                 const message_Output = document.querySelector("#message_Output")
                 let messageId = event.target.parentNode.id.split("--")[1]
                 messageAPI.deleteMessage(messageId)
-                .then(clearElement(message_Output))
-                .then(messageBuilder.displayMessages)
+                        .then(clearElement(message_Output))
+                        .then(messageBuilder.displayMessages)
         },
         editMessage() {
-                const message_Output = document.querySelector("#message_Output")
                 let messageId = event.target.parentNode.id.split("--")[1]
-                console.log("edit button " + messageId)
                 messageAPI.getMessage(messageId).then(messageToEdit => {
+                        const message = document.querySelector(`#messageCard--${messageId}`)
+                        clearElement(message)
+
+                        const updateInput = document.createElement("input")
+                        updateInput.value = messageToEdit.messages
+                        const updateButton = document.createElement("button")
+                        updateButton.textContent = "UPDATE"
+                        updateButton.id = `#updateButton--${messageId}`
+                        updateButton.addEventListener("click", () => {
+                                console.log(updateButton.id)
+
+                                const messageToEdit = {
+                                        messages: updateInput.value,
+                                        userId: null
+                                }
+
+                                messageAPI.patchMessage(messageToEdit, messageId)
+                        })
+
+                        message.appendChild(updateInput)
+                        message.appendChild(updateButton)
                         console.log(messageToEdit)
                 })
+
         }
 }
 

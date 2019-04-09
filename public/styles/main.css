@@ -13,8 +13,8 @@
 #message_Output {
 }
 
-#messageCard {
-        background-color: rgb(243, 243, 243);
+.messageCard {
+        background-color: rgb(249, 252, 255);
 }
 
 #message_sendButton {

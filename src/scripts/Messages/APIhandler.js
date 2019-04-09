@@ -21,15 +21,15 @@ const massageAPI = {
                 return fetch(`http://localhost:8088/messages/${messageId}`, {
                         method: "DELETE",
                 })
+        },
+        patchMessage(messageToEdit, messageId) {
+                return fetch(`http://localhost:8088/messages/${messageToEdit}`, {
+                        method: "PATCH",
+                        body: JSON.stringify(messageToEdit, messageId),
+                        headers: {
+                                "Content-Type": "application/json"
+                        }
+                })
         }
-//         editMessage(articleToEdit) {
-//                 return fetch(`http://localhost:8088/messages/${articleToEdit}`, {
-//                         method: "PUT",
-//                         body: JSON.stringify(articleToEdit),
-//                         headers: {
-//                                 "Content-Type": "application/json"
-//                         }
-//         })
 }
-
 export default massageAPI

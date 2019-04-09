@@ -36,6 +36,7 @@ const messageBuilder = {
                                 const message_Output = document.querySelector("#message_Output")
                                 const messageCard = document.createElement("div")
                                 messageCard.id = `messageCard--${entry.id}`
+                                messageCard.classList = "messageCard"
                                 const userMessage = document.createElement("p")
                                 userMessage.textContent = entry.messages
 
