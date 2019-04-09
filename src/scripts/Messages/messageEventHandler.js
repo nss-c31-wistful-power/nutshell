@@ -39,14 +39,17 @@ const handleMessages = {
                         updateButton.textContent = "UPDATE"
                         updateButton.id = `#updateButton--${messageId}`
                         updateButton.addEventListener("click", () => {
-                                console.log(updateButton.id)
-
+                                const message_Output = document.querySelector("#message_Output")
+                                let messageId = event.target.parentNode.id.split("--")[1]
+                                console.log(messageId)
+                                console.log(updateInput.value)
                                 const messageToEdit = {
                                         messages: updateInput.value,
                                         userId: null
                                 }
-
-                                messageAPI.patchMessage(messageToEdit, messageId)
+                                console.log(messageToEdit)
+                                messageAPI.patchMessage(messageToEdit, messageId).then(clearElement(message_Output))
+                                .then(messageBuilder.displayMessages)
                         })
 
                         message.appendChild(updateInput)

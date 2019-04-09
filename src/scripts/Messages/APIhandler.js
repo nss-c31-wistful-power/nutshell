@@ -23,7 +23,7 @@ const massageAPI = {
                 })
         },
         patchMessage(messageToEdit, messageId) {
-                return fetch(`http://localhost:8088/messages/${messageToEdit}`, {
+                return fetch(`http://localhost:8088/messages/${messageId}`, {
                         method: "PATCH",
                         body: JSON.stringify(messageToEdit, messageId),
                         headers: {
