@@ -5,6 +5,7 @@ import taskForm from "./tasks-module/taskForm"
 
 
 // import statements for EVENTS
+import eventsForm from "./events/eventsForm"
 
 
 
@@ -26,6 +27,7 @@ import messageBuilder from "../scripts/Messages/DOMhandler"
 
 
 
+
 // function call statements for TASKS
 
 taskForm.buildTaskForm()
@@ -34,8 +36,8 @@ taskForm.listAllTasks()
 
 
 // function call statements for EVENTS
-
-
+eventsForm.addNewEventButton()
+eventsForm.displayEvents()
 
 
 
