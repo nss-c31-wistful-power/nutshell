@@ -1,12 +1,36 @@
-import form from "./task";
 import taskAPI from "./taskAPI";
+import taskForm from "./taskForm"
 
-const taskListeners = {
+const clearElement = domElement => {
+    while (domElement.firstChild) {
+            domElement.removeChild(domElement.firstChild);
+    }
+}
 
-    createTaskForm() {
-console.log("string")
+    const handleAddTask = () => {
+        const taskName = document.querySelector("#task-name-input").value;
+        const taskDate = document.querySelector("#task-date-input").value;
 
-const taskFormContainer = document.querySelector("#tasks-section")
+        console.log("task Values", taskName, taskDate)
+
+        let newTask = {
+            name: taskName,
+            date: taskDate,
+            completed: false
+        };
+
+        const output = document.querySelector("#output")
+
+        taskAPI.postTasks(newTask).then(clearElement(output))
+        .then(taskForm.listAllTasks)
+    }
+
+    const createTaskForm = () => {
+        console.log("string")
+        const formSection = document.querySelector("#formSection")
+        clearElement(formSection);
+
+        const taskFormContainer = document.querySelector("#formSection")
         const taskLabel = document.createElement("label");
         taskLabel.textContent = "Tasks Name: ";
 
@@ -22,7 +46,9 @@ const taskFormContainer = document.querySelector("#tasks-section")
 
         const taskFormButton = document.createElement("button");
         taskFormButton.textContent = "Save Task";
-        taskFormButton.addEventListener("click", this.handleAddTask)
+        taskFormButton.addEventListener("click", () => {
+        handleAddTask()
+        })
 
 
 
@@ -34,21 +60,8 @@ const taskFormContainer = document.querySelector("#tasks-section")
 
 
 
-        return taskFormContainer;
-    },
 
-    handleAddTask() {
-        const taskName = document.querySelector("#task-name-input").value;
-        const taskDate = document.querySelector("#task-date-input").value;
-
-        const newTask = {
-            name: taskName,
-            date: taskDate
-        };
-
-        taskAPI.postTasks(newTask)
-        .then(() => taskForm.listAlltasks())
-    }
 }
 
-export default taskListeners
+
+export default createTaskForm
