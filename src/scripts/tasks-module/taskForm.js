@@ -1,5 +1,6 @@
 import taskAPI from "./taskAPI";
 import taskListeners from "./task-list"
+
 //tasks-section     is the container
 
 
@@ -35,6 +36,8 @@ listAllTasks(){
 
         taskHeader.textContent = task.name;
         taskParagraph.textContent = task.date;
+
+
 
         taskSection.appendChild(taskHeader);
         taskSection.appendChild(taskParagraph);

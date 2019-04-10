@@ -16,41 +16,40 @@ postTasks(newTask) {
      },
      body: JSON.stringify(newTask)
     })
-}
-}
 
-// },
+},
 
-// putTask(taskId) {
-//    return fetch(`http://localhost:8088/tasks/${taskId}`, {
-//         method: "PUT",
-//         headers: {
-//             "content-type": "application/json"
-//         },
-//         body: JSON.stringify(updatedTaskObject)
-//     })
-// },
+putTask(taskId) {
+   return fetch(`http://localhost:8088/tasks/${taskId}`, {
+        method: "PUT",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(updatedTaskObject)
+    })
+},
 
-// deleteTask(taskId) {
-//     return fetch(`http://localhost:8088/tasks/${taskId}`, {
-//     method: "DELETE"
-// })
-
+deleteTask(taskId) {
+    return fetch(`http://localhost:8088/tasks/${taskId}`, {
+    method: "DELETE"
+})
+},
 // getTask(taskId) {
-//     fetch()
-// }
+    // fetch(`hhtp://localhost:8088/tasks/${taskId}`).then(response => response.json())
+
 // },
 
-// patchTasks(taskId, updatedTaskObject) {
-//     fetch(`http://localhost:8088/tasks/${taskId}`, {
-//         method: "Patch",
-//         headers: {
-//             "content-type": "application/json"
-//         },
-//         body: JSON.stringify(updatedTaskObject)
-//     })
-// }
+patchTasks(taskId, updatedTaskObject) {
+    fetch(`http://localhost:8088/tasks/${taskId}`, {
+        method: "Patch",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(updatedTaskObject)
+    })
+}
 
+}
 
 
 

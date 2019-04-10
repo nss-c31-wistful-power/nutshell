@@ -13,7 +13,7 @@ const clearElement = domElement => {
 
         console.log("task Values", taskName, taskDate)
 
-        const newTask = {
+        let newTask = {
             name: taskName,
             date: taskDate,
             completed: false
@@ -61,7 +61,7 @@ const clearElement = domElement => {
 
 
 
-    }
+}
 
 
 export default createTaskForm

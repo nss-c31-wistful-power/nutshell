@@ -1,102 +1,91 @@
+// import domManager from "./dom-manager"
 
- const buildTaskHTML = () =>  {
+// export default {
 
-const taskEditContainer = buildElement("article", `task--${taskObject.id}`);
 
- let editTaskButton = buildElement("button", undefined, "Edit Task")
- taskEditContainer.appendChild(editTaskButton);
- editTaskButton.addEventListener("click", handleEdit)
+//    taskEditForm(taskObject) {
+//         let editFormFragment = document.createDocumentFragment()
 
- let deleteTaskButton = buildElement("button", undefined, "Delete Task")
- taskEditContainer.appendChild(deleteTaskButton);
- deleteTaskButton.addEventListener("click", handleDelete)
- return taskEditContainer;
-},
+//         editFormFragment.appendChild(domManager.buildElement("label", undefined, "Name: "))
+//         editFormFragment.appendChild(domManager.buildElement("input", `edit-task-name--${taskObject.id}`, undefined, taskObject.name))
 
-const taskEditForm = (taskObject) => {
-    let editFormFragment = document.createDocumentFragment()
+//         editFormFragment.appendChild(domManager.buildElement("label", undefined, "Date: "))
+//         editFormFragment.appendChild(domManager.buildElement("input", `edit-task-date--${taskObject.id}`, undefined, taskObject.date))
 
-    editFormFragment.appendChild(buildElement("label", undefined, "Name: "))
-    editFormFragment.appendChild(buildElement("input", `edit-task-name--${taskObject.id}`, undefined, taskObject.name))
+//         editFormFragment.appendChild(domManager.buildElement("label", undefined, "Completed: "))
+//         let taskCompletedT = domManager.buildElement("input", `edit-task-completed--${taskObject.id}`, undefined, taskObject.completed)
+//         taskCompletedT.type = "radio"
+//         taskCompletedT.name = "completed"
+//         taskCompletedT.value = true;
+//         editFormFragment.appendChild(taskCompletedT)
+//         editFormFragment.appendChild(domManager.buildElement("label", undefined, "Not Completed: "))
+//         let taskCompletedF = domManager.buildElement("input", `edit-task-completed--${taskObject.id}`, undefined, taskObject.completed)
+//         taskCompletedF.type = "radio"
+//         taskCompletedF.name = "completed"
+//         taskCompletedF.value = false;
+//         editFormFragment.appendChild(taskCompletedF)
 
-    editFormFragment.appendChild(buildElement("label", undefined, "Date: "))
-    editFormFragment.appendChild(buildElement("input", `edit-task-date--${taskObject.id}`, undefined, taskObject.date))
+//         const updateTaskButton = domManager.buildElement("button", undefined, "Update")
+//         updateTaskButton.addEventListener("click", handleUpdate)
+//         editFormFragment.appendChild(updateTaskButton)
 
-    editFormFragment.appendChild(buildElement("label", undefined, "Completed: "))
-    let taskCompletedT = buildElement("input", `edit-task-completed--${taskObject.id}`, undefined, taskObject.completed)
-    taskCompletedT.type = "radio"
-    taskCompletedT.name = "completed"
-    taskCompletedT.value = true;
-    editFormFragment.appendChild(taskCompletedT)
-    editFormFragment.appendChild(buildElement("label", undefined, "Not Completed: "))
-    let taskCompletedF = buildElement("input", `edit-task-completed--${taskObject.id}`, undefined, taskObject.completed)
-    taskCompletedF.type = "radio"
-    taskCompletedF.name = "completed"
-    taskCompletedF.value = false;
-    editFormFragment.appendChild(taskCompletedF)
+//         return editFormFragment;
+//       },
 
-    const updateTaskButton = buildElement("button", undefined, "Update")
-    updateTaskButton.addEventListener("click", handleUpdate)
-    editFormFragment.appendChild(updateTaskButton)
+//       handleDelete() {
+//         let taskId = event.target.parentNode.id.split("--")[1];
 
-    return editFormFragment;
-},
+//        deleteTask(taskId).then(() => getAllTasks());
 
-const handleDelete = () => {
-    console.log(
-      "delete button clicked",
-      event.target.parentNode.id.split("--")[1]
-    );
-    let taskId = event.target.parentNode.id.split("--")[1];
+//       },
 
-    deleteTask(taskId).then(() => getAllTasks());
-  };
+//       handleCompleteTask() {
+//       console.log(
+//       "completed button clicked",
+//       event.target.parentNode.id.split("--")[1]
+//     );
+//     let taskId = event.target.parentNode.id.split("--")[1];
 
-  const handleCompleteTask = () => {
-    console.log(
-      "completed button clicked",
-      event.target.parentNode.id.split("--")[1]
-    );
-    let taskId = event.target.parentNode.id.split("--")[1];
+//     let completeTask = {
+//       completed: true
+//     };
 
-    let completeTask = {
-      completed: true
-    };
+//     patchTasks(taskId, completeTask).then(() => getAllTasks());
+//   },
 
-    patchTasks(taskId, completeTask).then(() => getAllTasks());
-  };
+//     handleEditTask() {
+//     console.log("edit button clicked", event.target.parentNode.id.split("--")[1]);
+//     let taskId = event.target.parentNode.id.split("--")[1];
 
-  const handleEditTask = () => {
-    console.log("edit button clicked", event.target.parentNode.id.split("--")[1]);
-    let taskId = event.target.parentNode.id.split("--")[1];
+//     const taskSection = document.querySelector(`#output${taskId}`);
+//     clearElement(taskSection);
 
-    const taskSection = document.querySelector(`#output${taskId}`);
-    clearElement(taskSection);
+//     getTask(taskId).then(taskToEdit => {
+//       const editFormForTask = taskEditForm(taskToEdit);
+//       taskSection.appendChild(editFormForTask);
+//     });
+//   },
 
-    getTask(taskId).then(taskToEdit => {
-      const editFormForTask = taskEditForm(taskToEdit);
-      taskSection.appendChild(editFormForTask);
-    });
-  };
+//   handleUpdateTask() {
+//     console.log(
+//       "update button clicked",
+//       event.target.parentNode.id.split("--")[1]
+//     );
 
-  const handleUpdateTask = () => {
-    console.log(
-      "update button clicked",
-      event.target.parentNode.id.split("--")[1]
-    );
-    let taskId = event.target.parentNode.id.split("--")[1];
+//     let taskId = event.target.parentNode.id.split("--")[1];
 
-    const editedTaskName = document.querySelector(`#edit-task-name--${taskId}`);
-    const editedTaskDate = document.querySelector(`#edit-task-date--${taskId}`);
-    let radioButtonValue = document.querySelector(`input[name="complete"]:checked`).value;
+//     const editedTaskName = document.querySelector(`#edit-task-name--${taskId}`);
+//     const editedTaskDate = document.querySelector(`#edit-task-date--${taskId}`);
+//     let radioButtonValue = document.querySelector(`input[name="complete"]:checked`).value;
 
-    console.log(editedTaskName.value, editedTaskDate.value);
+//     console.log(editedTaskName.value, editedTaskDate.value);
 
-    let editedTask = {
-      name: editedTaskName.value,
-      state: editedTaskDate.value,
-      completed: (radioButtonValue === "true")
-    };
+//     let editedTask = {
+//       name: editedTaskName.value,
+//       state: editedTaskDate.value,
+//       completed: (radioButtonValue === "true")
+//     };
 
-    putTasks(taskId, editedTask).then(() => listAllTasks());
-  };
+//     putTasks(taskId, editedTask).then(() => listAllTasks());
+//   }
+// }
