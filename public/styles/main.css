@@ -11,7 +11,15 @@
 }
 
 #message_Output {
-        width: 95vw;
-        height: 50px;
+}
+
+.messageCard {
+        background-color: rgb(249, 252, 255);
+        height: 7vh;
+        margin-bottom: 2px;
+}
+
+#message_sendButton {
+        width: 5vw;
 }
 /* END OF MESSAGE STYLING*/
