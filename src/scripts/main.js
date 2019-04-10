@@ -1,7 +1,5 @@
 // import statements for TASKS
-import taskAPI from "./tasks-module/taskAPI"
 import taskForm from "./tasks-module/taskForm"
-import taskListeners from "./tasks-module/task-list"
 
 
 
@@ -23,7 +21,7 @@ news.newsPost();
 
 
 // import statements for MESSAGES
-import messageBuilder from "../scripts/Messages.js/DOMhandler"
+import messageBuilder from "../scripts/Messages/DOMhandler"
 
 
 
@@ -31,11 +29,9 @@ import messageBuilder from "../scripts/Messages.js/DOMhandler"
 
 
 // function call statements for TASKS
-taskAPI.getAllTasks()
+
 taskForm.buildTaskForm()
-// task-list.taskListeners()
-
-
+taskForm.listAllTasks()
 
 
 

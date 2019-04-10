@@ -27,6 +27,13 @@ const eventsForm = {
         const eventsFormSection = document.createElement("section")
         eventsFormSection.setAttribute("id", "eventsFormSection")
         eventsContainer.appendChild(eventsFormSection)
+<<<<<<< HEAD
+=======
+
+        const eventsDisplaySection = document.createElement("section")
+        eventsDisplaySection.setAttribute("id", "eventsDisplaySection")
+        eventsContainer.appendChild(eventsDisplaySection)
+>>>>>>> master
     },
 
     newEvent() {
@@ -99,7 +106,12 @@ const eventsForm = {
         saveEventButton.textContent = "Save"
         saveEventButton.addEventListener("click", () => {
             eventsForm.newEvent()
+<<<<<<< HEAD
             .then(() => {
+=======
+            .then((saveEvents) => {
+                console.log(saveEvents)
+>>>>>>> master
                 eventsForm.createEventsDisplay()
             })
         })
@@ -107,10 +119,17 @@ const eventsForm = {
     },
 
 
+<<<<<<< HEAD
     displayEvents() {
 
 
         const eventsContainer = document.querySelector("#events-section")
+=======
+    displayEvents(event) {
+
+
+        const eventsContainer = document.querySelector("#eventsDisplaySection")
+>>>>>>> master
         const eventsDisplayContainer = document.createElement("div")
         eventsDisplayContainer.textContent = "Events List"
         
@@ -122,12 +141,17 @@ const eventsForm = {
         deleteButton.textContent = "Delete"
         // eventsDisplayContainer.appendChild(deleteButton)
 
+<<<<<<< HEAD
         },
+=======
+        eventsContainer.appendChild(eventsDisplayContainer)},
+>>>>>>> master
 
     createEventsDisplay() {
         console.log("createEventsDisplay called")
         // eventsCalls.getEventsList().then((events) => {
         // events.forEach(event => {
+<<<<<<< HEAD
         //     this.displayEvents(event)
         // })
         // eventsContainer.appendChild(eventsDisplayContainer)}
@@ -137,6 +161,18 @@ const eventsForm = {
         //     while ()
         // }
     }
+=======
+        //     eventsForm.displayEvents(event)
+        }
+        
+    }
+
+       
+       // clearEventsDisplay() {
+        //     while ()
+        // }
+
+>>>>>>> master
         // .then(eventsDisplayContainer.appendChild(editButton), eventsDisplayContainer.appendChild(deleteButton))
     
 
