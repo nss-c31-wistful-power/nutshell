@@ -20,7 +20,7 @@ news.newsPost();
 
 
 // import statements for MESSAGES
-import messageBuilder from "../scripts/Messages.js/DOMhandler"
+import messageBuilder from "../scripts/Messages/DOMhandler"
 
 
 
